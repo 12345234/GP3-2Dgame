@@ -1,15 +1,9 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Charactor
 {
-    [SerializeField] int sponetime;
     [SerializeField] GameObject[] enemy;
 
-    public void SponeEnemy()
-    {
-        //int i = Random.Range(0, enemy.Length);
-        this.gameObject.SetActive(true);
-    }
     private void OnDestroy()
     {
         
@@ -19,8 +13,7 @@ public class Enemy : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Bullet"))
         {
-            this.gameObject.SetActive(false);
-            Invoke(nameof(SponeEnemy), sponetime);
+            base.Die();
         }
     }
 }

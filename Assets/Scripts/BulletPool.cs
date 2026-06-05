@@ -5,7 +5,7 @@ public class BulletPool : MonoBehaviour
 {
     [SerializeField] private GameObject bullet;
     [SerializeField] public ObjectPool<GameObject> pool;
-    [SerializeField] private int size;
+    public int size;
 
     private void Awake()
     {
@@ -39,10 +39,5 @@ public class BulletPool : MonoBehaviour
     {
         obj.SetActive(false);
     }
-
-    //private void Destroy(GameObject obj)
-    //{
-    //    UnityEngine.Object.Destroy(obj);
-    //}
 
 }
