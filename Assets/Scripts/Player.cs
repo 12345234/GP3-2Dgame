@@ -2,6 +2,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player :Charactor
 {
@@ -95,6 +96,16 @@ public class Player :Charactor
 
         Gizmos.DrawLine(transform.position, endPos);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("flag")&& GameObject.FindGameObjectWithTag("Enemy") == null)
+        {
+            SceneManager.LoadScene(1);
+        }
+    }
+
+
     [SerializeField] private BulletPool _bulletpool;
     [SerializeField] private float time;
     [SerializeField] int visible;
